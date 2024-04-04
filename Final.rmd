@@ -1,6 +1,6 @@
 ---
-title: "Covid91 vaccine study Final2023"
-author: "Put your name here!"
+title: "Covid19 Vaccine Study Final2023"
+author: "Ever De Leon"
 output: 
   html_document:
     number_sections: true
