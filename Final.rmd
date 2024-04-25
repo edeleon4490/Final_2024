@@ -1,5 +1,5 @@
 ---
-title: "Covid19 Vaccine Study Final2023"
+title: "Covid19 Vaccine Study Final 2024"
 author: "Ever De Leon"
 output: 
   html_document:
@@ -22,7 +22,12 @@ mutate(across(where(is.character), as.factor))
 
 # Introduction
 
-A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
+A new preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of sub populations tracked. Consider population subgroups by gender (guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbiage when referencing p-values in conclusions.
+
+$H_0$ The COVID vaccine has no difference in effectiveness on people in different subgroups.
+
+$H_A$ The COVID vaccine does have a difference in effectiveness on people different subgroups.
+ 
 
 ## Males
 
