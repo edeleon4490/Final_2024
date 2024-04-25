@@ -26,20 +26,65 @@ A new preventative vaccine (covid921) is under test in clinical trials. Given th
 
 $H_0$ The COVID vaccine has no difference in effectiveness on people in different subgroups.
 
-$H_A$ The COVID vaccine does have a difference in effectiveness on people different subgroups.
+$H_A$ The COVID vaccine does have a difference in effectiveness on people in different subgroups.
  
+### Method
+
+The statistical analysis we will be using is catergorical ~ categorical, because all variables (subgroups) we are analyzing are categorical.
 
 ## Males
 
+```{r}
+maleData = filter (FinalData,sex == "M")
+```
+
+### Descriptive Results
+
+#### Graphical Descriptive 
+
+```{r}
+barchartGC(~infected+treatment,data=maleData)
+barchartGC(~infected+treatment,data=maleData, type="percent")
+
+```
+
+Based on the graph, it is showing us showing the distribution of infected Males for each level of the treatment (covid19 or ok). It looks as if the Males who got the vaccine had a less percentage chance of contracting covid19.
+
+#### Numerical Descriptive
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=maleData)
+rowPerc(table1)
+colPerc(table1)
+```
+
+These tables are showing us the distributions in exact percentages that were illustrated in the barcharts. The tables also confirm that those that were vaccinated had a lesser chance fo contracting covid19.
+
+#### Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The p-value is 0.0000000000001098 for the Chi-squared test, that there is a significant association between infected and treatment within the Male subroup.
+
+Based on the Fisher exact test, we got a p-value of 0.0000000000004631, which suggest the same as the Chi-squared test.
+
 
 ## Females
+
 
 
 ## LGBTQ
 
 
 
+
 ## Druggies
+
+
 
 
 # Overall Results and Conclusions
