@@ -22,7 +22,7 @@ mutate(across(where(is.character), as.factor))
 
 # Introduction
 
-A new preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of sub populations tracked. Consider population subgroups by gender (guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbiage when referencing p-values in conclusions.
+A new preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of sub populations tracked. Consider population subgroups by females, drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbiage when referencing p-values in conclusions.
 
 $H_0$ The COVID vaccine has no difference in effectiveness on people in different subgroups.
 
@@ -31,46 +31,6 @@ $H_A$ The COVID vaccine does have a difference in effectiveness on people in dif
 ### Method
 
 The statistical analysis we will be using is catergorical ~ categorical, because all variables (subgroups) we are analyzing are categorical.
-
-## Males
-
-```{r}
-maleData = filter (FinalData,sex == "M")
-```
-
-### Descriptive Results
-
-#### Graphical Descriptive 
-
-```{r}
-barchartGC(~infected+treatment,data=maleData)
-barchartGC(~infected+treatment,data=maleData, type="percent")
-
-```
-
-Based on the graph, it is showing us showing the distribution of infected Males for each level of the treatment (covid19 or ok). It looks as if the Males who got the vaccine had a less percentage chance of contracting covid19.
-
-#### Numerical Descriptive
-
-```{r}
-table1 <- xtabs(~infected + treatment, data=maleData)
-rowPerc(table1)
-colPerc(table1)
-```
-
-These tables are showing us the distributions in exact percentages that were illustrated in the barcharts. The tables also confirm that those that were vaccinated had a lesser chance fo contracting covid19.
-
-#### Inferential Results
-
-```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
-```
-
-The p-value is 0.0000000000001098 for the Chi-squared test, that there is a significant association between infected and treatment within the Male subroup.
-
-Based on the Fisher exact test, we got a p-value of 0.0000000000004631, which suggest the same as the Chi-squared test.
 
 
 ## Females
@@ -202,7 +162,7 @@ Based on the Fisher exact test, we got a p-value of 0.000000000232, which sugges
 
 The effectiveness of the COVID vaccine varies significantly across different population subgroups.
 
-The vaccine showed a significant reduction in the percentage of Males contracting COVID-19 compared to those who received the placebo. Both the Chi-squared test and Fisher exact test confirmed this result (p < 0.001). Similar to males, Females who received the vaccine had a significantly lower chance of contracting COVID-19 compared to those who received the placebo (p < 0.001).
+The vaccine showed a significant reduction in the percentage of Females contracting COVID-19 compared to those who received the placebo. Both the Chi-squared test and Fisher exact test confirmed this result (p < 0.001). 
 
 Within the LGBTQ subgroup, individuals who received the vaccine showed a higher percentage of COVID-19 symptoms compared to those who received the placebo. Both statistical tests confirmed this unexpected result (p < 0.001). Similar to the LGBTQ subgroup, druggies who got the vaccine showed a higher likelihood of COVID-19 infection (p < 0.001).
 
