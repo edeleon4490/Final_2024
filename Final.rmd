@@ -75,6 +75,43 @@ Based on the Fisher exact test, we got a p-value of 0.0000000000004631, which su
 
 ## Females
 
+## Results
+
+```{r}
+femaleData = filter (FinalData,sex == "F")
+```
+
+## Descriptive Results
+
+### Graphical Descriptive 
+
+```{r}
+barchartGC(~infected+treatment,data=femaleData)
+barchartGC(~infected+treatment,data=femaleData, type="percent")
+```
+
+Based on the graph, it is showing us showing the distribution of infected Females for each level of the treatment (covid19 or ok). It looks as if the females cibtracted void19 and who got the vaccine had a less percentage chance of contracting covid19 than those who got the placebo.
+
+### Numerical Descriptive
+
+```{r}
+table2 <- xtabs(~infected + treatment, data=femaleData)
+rowPerc(table2)
+colPerc(table2)
+```
+The data from this table shows that from the female group that were infected with COVID 19, those who were unvaccinated, 60% of them experienced symptoms while only 40% of the female group who were vaccinated experienced symptoms. It is also showing that within the female placebo group, 2.04% were infected with COVID, while only 1.37% of the vaccinated group contracted COVID.
+
+### Inferential Results
+
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
+```
+
+The p-value is 0.0002732 for the Chi-squared test, that there is a significant association between infected and treatment within the Male subroup.
+
+Based on the Fisher exact test, we got a p-value of 0.0002162, which suggest the same as the Chi-squared test.
 
 
 ## LGBTQ
