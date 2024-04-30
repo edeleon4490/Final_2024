@@ -141,7 +141,7 @@ rowPerc(table3)
 colPerc(table3)
 ```
 
-The data from this table shows that from the LGBTQ group that were infected with COVID 19, The unvaccinated 15.38% experienced symptoms while a staggering vaccinated 84.62% of the female group experienced symptoms. It is also showing that within the LGBTQ placebo group, 0.66% were infected with COVID, while 3.54% of the vaccinated group contracted COVID.
+The data from this table shows that from the LGBTQ group that were infected with COVID 19, The unvaccinated 15.38% experienced symptoms while a staggering vaccinated 84.62% of the LGBTQ group experienced symptoms. It is also showing that within the LGBTQ placebo group, 0.66% were infected with COVID, while 3.54% of the vaccinated group contracted COVID.
 
 #### Inferential Results
 
@@ -176,16 +176,16 @@ barchartGC(~infected+treatment,data=DruggiesData, type="percent")
 
 This graph us showing that from the drug user group who contracted COVID, the ones who received the vaccine had more symptoms than those with the placebo while drug user group that did not contract COVID showed no difference between those who were vaccinated and not vaccinated.
 
-### Numerical Descriptive
+#### Numerical Descriptive
 
 ```{r}
 table4 <- xtabs(~infected + treatment, data=DruggiesData)
 rowPerc(table4)
 colPerc(table4)
 ```
-This table is showing that within the placebo drug user group, they experience 11.67% of symptoms while the vaccinated group experienced 88.33% of symptoms. It is also showing that 0.4% of the placebo group contracted COVID, while 3.06% of the vaccinated drug user group contracted COVID. There is a significant difference and effect between the placebo and COVID vaccine.
+The data from this table shows that from the druggies group that were infected with COVID 19, The unvaccinated 11.67% experienced symptoms while the vaccinated 88.33% of the druggies group experienced symptoms. It is also showing that within the druggies placebo group, 0.4% were infected with COVID symptoms , while 3.06% of the vaccinated group contracted COVID symptoms.
 
-### Inferential Results
+#### Inferential Results
 
 ```{r}
 chisq.test(table4)
@@ -194,10 +194,16 @@ fisher.test(table4)
 ```
 
 
-Based on this chisq test, the p-value is 0.00000002842 
+The p-value is 0.000000002842 for the Chi-squared test, showing that there is a significant association between infected and treatment within the druggies subroup.
 
-The fisher exact test showed a p-value of 0.00000232, which is showing that there is a  odds ratio of about 0.12%, suggesting that the odds of this occuring are lower in one group compared to the other, the 95% confidence ineravl supports this 
-
-
+Based on the Fisher exact test, we got a p-value of 0.000000000232, which suggest the same as the Chi-squared test.
 
 # Overall Results and Conclusions
+
+The effectiveness of the COVID vaccine varies significantly across different population subgroups.
+
+The vaccine showed a significant reduction in the percentage of Males contracting COVID-19 compared to those who received the placebo. Both the Chi-squared test and Fisher exact test confirmed this result (p < 0.001). Similar to males, Females who received the vaccine had a significantly lower chance of contracting COVID-19 compared to those who received the placebo (p < 0.001).
+
+Within the LGBTQ subgroup, individuals who received the vaccine showed a higher percentage of COVID-19 symptoms compared to those who received the placebo. Both statistical tests confirmed this unexpected result (p < 0.001). Similar to the LGBTQ subgroup, druggies who got the vaccine showed a higher likelihood of COVID-19 infection (p < 0.001).
+
+Therefore, based on the statistical tests conducted for each subgroup, we reject the null hypothesis ($H_0$) that the COVID vaccine has no difference in effectiveness on people in different subgroups.
